@@ -8,7 +8,8 @@
     "url": "https://github.com/blinker-iot/blinker-js.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "mi": "ts-node example/miot/example_miot_light.ts"
   },
   "author": "blinker",
   "license": "MIT",

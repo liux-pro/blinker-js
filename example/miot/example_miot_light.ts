@@ -12,9 +12,11 @@ device.ready().then(() => {
         switch (message.data.set.pState) {
             case "true":
                 message.power("on").update();
+                console.log("开灯")
                 break;
             case "false":
                 message.power("off").update();
+                console.log("关灯")
                 break;
             default:
                 break;

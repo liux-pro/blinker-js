@@ -105,8 +105,8 @@ export class BlinkerDevice {
             await this.connectBroker()
             this.addWidget(this.builtinSwitch)
             this.getShareInfo()
-            this.initLocalService()
-            // 加载暂存数据  
+            // this.initLocalService()
+            // 加载暂存数据
             this.tempDataPath = `.${this.config.deviceName}.json`
             this.tempData = loadJsonFile(this.tempDataPath)
             this.loadTimingTask()
@@ -557,7 +557,7 @@ export class BlinkerDevice {
         saveJsonFile(this.tempDataPath, this.tempData)
     }
 
-    // 重启后，加载定时配置  
+    // 重启后，加载定时配置
     private loadTimingTask() {
         if (typeof this.tempData['timing'] == 'undefined') return
         timerLog("load timing tasks")
@@ -568,7 +568,7 @@ export class BlinkerDevice {
         }
     }
 
-    // 倒计时功能  
+    // 倒计时功能
     countdownTimer;
     countdownTimer2;
 
@@ -623,7 +623,7 @@ export class BlinkerDevice {
             return { countdown: this.tempData['countdown'] }
     }
 
-    // 气象数据获取  
+    // 气象数据获取
     getWeather(cityCode = null) {
         let params = {
             device: this.config.deviceName,
@@ -742,7 +742,7 @@ export class BuiltinSwitch {
 }
 
 function formatMess2Device(deviceId, toDevice, data) {
-    // 兼容阿里broker保留deviceType和fromDevice  
+    // 兼容阿里broker保留deviceType和fromDevice
     return `{"deviceType":"OwnApp","data":${data},"fromDevice":"${deviceId}","toDevice":"${toDevice}"}`
 }
 
